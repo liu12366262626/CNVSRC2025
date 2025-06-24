@@ -1,3 +1,6 @@
 # CNVSRC2025
-Official CNVSRC2025 Competition Baseline
+This Is Official CNVSRC2025 Competition Baseline System
 
+We now have two track here:
+1. Chinese VSR(Visual Speech Recognition) task, please see more information and code in VSR file
+2. Chinese VTS(Video to Speech) task, please see more information and code in VTS file
