@@ -1,0 +1,109 @@
+input:
+  label_dir: /home/liuzehua/task/VTS/LipVoicer_revise/data/CNVSRC_Single
+  train_file: train
+  valid_file: valid300
+  train_micro_batch_size_per_gpu: 32
+  gradient_accumulation_steps: 2
+  num_gpus: 1
+  
+
+save:
+  save_path: /home/liuzehua/task/VTS/LipVoicer_revise/main_log/temp
+  save_feat: ${input.label_dir}/save_feat
+  save_hydra: ${save.save_path}/hydra_config
+  save_checkpoint: ${save.save_path}/checkpoint
+  save_tensorboard: ${save.save_path}/log_dir
+
+
+
+
+training:
+  accumulate_grad_batches: ${input.gradient_accumulation_steps}  # 每个GPU都累积 2 个 batch后更新梯度   实际的batchsize = gpu_num * train_micro_batch_size_per_gpu * gradient_accumulation_steps
+  finetune_epoch: 100000000000000
+  output_dir: ${save.save_path}
+  max_steps: 500000
+  logging_dir: ${save.save_path}/log
+  logging_steps: 200
+  evaluation_strategy: "epoch"
+  save_strategy: "epoch"
+  train_micro_batch_size_per_gpu: ${input.train_micro_batch_size_per_gpu}
+
+  optimization:
+    max_update: ${training.max_steps}
+    lr: 0.0002
+    sentence_avg: true
+    update_freq: [8]
+
+  optimizer:
+    _name: adam
+    beta1: 0.9
+    beta2: 0.98
+    adam_eps: 1e-08
+
+  lr_scheduler:
+    _name: tri_stage
+    warmup_steps: 5000
+    hold_steps: 1000
+    decay_steps: 400000
+    final_lr_scale: 0.05
+
+model:
+  lip_reading:
+    "backbone_type": "shufflenet"
+    "relu_type": "prelu"
+    "tcn_dropout": 0.2
+    "tcn_dwpw": false
+    "tcn_kernel_size": [3]
+    "tcn_num_layers": 4
+    "tcn_width_mult": 2
+    "width_mult": 1.0
+  melgen:
+    _name_: melgen
+    in_channels: 80
+    out_channels: 80
+    diffusion_step_embed_dim_in: 128
+    diffusion_step_embed_dim_mid: 512
+    diffusion_step_embed_dim_out: 512
+    res_channels: 512
+    skip_channels: 512
+    num_res_layers: 12
+    dilation_cycle: 1
+    mel_upsample: [2, 2]
+    cond_drop_prob: 0.2
+  diffusion:
+      T: 400
+      beta_0: 0.0001
+      beta_T: 0.02
+      beta: null
+      
+
+
+
+data:
+  num_workers: 16
+  # data
+  shuffle: True
+  train_micro_batch_size_per_gpu: ${input.train_micro_batch_size_per_gpu}
+  label_dir: ${input.label_dir} 
+  train_file: ${input.train_file} 
+  valid_file: ${input.valid_file} 
+  max_video_frame_size: 1000
+  min_video_frame_size: 0
+  videos_window_size: 25
+  # image
+  fps: 25
+  image_aug: True
+  image_mean: 0.421
+  image_std: 0.165
+  image_crop_size: 88
+  # audio
+  sampling_rate: 16000
+  filter_length: 640
+  hop_length: 160
+  win_length: 640
+  mel_fmin: 20.0
+  mel_fmax: 8000.0
+
+hydra:
+  run:
+    dir: ${save.save_path}

@@ -1,0 +1,7 @@
+[2025-06-23 16:27:17,575][model_v1.data][INFO] - max_keep=1000, min_keep=0, loaded 300, skipped 0 short and 0 long longest-video-loaded=718 frames, shortest-video-loaded=30 frames
+[2025-06-23 16:27:17,577][model_v1.data][INFO] - Image transform: Compose(
+    Normalize(mean=0.0, std=255.0)
+    <model_v1.utils.CenterCrop object at 0x73ad603e1160>
+    Normalize(mean=0.421, std=0.165)
+)
+[2025-06-23 16:27:17,578][model_v1.data][INFO] - Checking for missing .melspec files in audio directory ...

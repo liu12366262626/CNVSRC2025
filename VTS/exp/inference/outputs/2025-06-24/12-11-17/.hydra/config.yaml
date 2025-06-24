@@ -1,0 +1,37 @@
+vtts_path: /home/liuzehua/task/VTS/LipVoicer_revise/main_log/temp/step=55500_val_loss=0.1244.ckpt
+asr_guidance_path: /home/liuzehua/task/VTS/LipVoicer_revise/main_log/temp/step=79920_val_loss=30.8385.ckpt
+vsr_path: /home/lixiaolou/code/CNVSRC2024Baseline/pretrained_models/cncvs_cncvs2_cncvs3_1000/epoch=80.ckpt
+save_path: /home/liuzehua/task/VTS/LipVoicer_revise/main_log/infer_result2
+split: valid300
+vsr:
+  data:
+    modality: video
+  visual_backbone:
+    adim: 768
+    aheads: 12
+    eunits: 3072
+    elayers: 12
+    transformer_input_layer: conv3d
+    dropout_rate: 0.1
+    transformer_attn_dropout_rate: 0.1
+    transformer_encoder_attn_layer_type: rel_mha
+    macaron_style: true
+    use_cnn_module: true
+    cnn_module_kernel: 31
+    zero_triu: false
+    a_upsample_ratio: 1
+    relu_type: swish
+    ddim: 768
+    dheads: 12
+    dunits: 3072
+    dlayers: 6
+    r_dlayers: 3
+    lsm_weight: 0.1
+    transformer_length_normalized_loss: false
+    mtlalpha: 0.1
+    mtlbeta: 0.3
+    ctc_type: builtin
+    rel_pos_type: latest
+  ckpt_path: ${vsr_path}
+  transfer_frontend: false
+  remove_ctc: false

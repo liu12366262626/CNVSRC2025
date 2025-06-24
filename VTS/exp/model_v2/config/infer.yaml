@@ -1,0 +1,65 @@
+visual_decoder_path:
+visual_encoder_path:
+infer_path: /home/liuzehua/task/VSR/VSP-LLM/main_log/2025-02-25/14-25-18/model-vsr-llm2/checkpoint/step=14666_val_acc=0.5771.ckpt
+data_path:
+split:
+
+data:
+  #video
+  image_mean: 0.421
+  image_std: 0.165
+  image_crop_size: 88
+  # audio
+  filter_length: 512
+  hop_length: 160
+  win_length: 400
+  n_mel_channels: 80
+  mel_fmin: 0
+  mel_fmax: 8000
+  sample_rate: 16000
+  max_wav_value: 32768
+
+transformer:
+  encoder_layer: 4
+  encoder_head: 2
+  encoder_hidden: 256
+  decoder_layer: 6
+  decoder_head: 2
+  decoder_hidden: 256
+  conv_filter_size: 1024
+  conv_kernel_size: [9, 1]
+  encoder_dropout: 0.2
+  decoder_dropout: 0.2
+  visual_emb_dims: 512
+  attn_dropout_rate: 0.3
+  upsample_scale: 3.44
+  upsample_scale_mel: 4
+
+variance_predictor:
+  filter_size: 256
+  kernel_size: 3
+  dropout: 0.5
+
+variance_embedding:
+  pitch_quantization: "linear" # support 'linear' or 'log', 'log' is allowed only if the pitch values are not normalized during preprocessing
+  energy_quantization: "linear" # support 'linear' or 'log', 'log' is allowed only if the energy values are not normalized during preprocessing
+  n_bins: 256
+
+
+multi_speaker: True
+
+max_seq_len: 4000
+max_vid_len: 1000
+
+vocoder:
+  model: "HiFi-GAN" # support 'HiFi-GAN', 'MelGAN'
+  speaker: "universal" # support  'LJSpeech', 'universal'
+
+
+save:
+  infer_result:
+
+
+hydra:
+  run:
+    dir: ???
