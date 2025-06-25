@@ -166,7 +166,7 @@ CER: 31.41%
 
 ## License
 
-It is noted that the code can only be used for comparative or benchmarking purposes. Users can only use code supplied under a [License](./LICENSE) for non-commercial purposes.
+It is noted that the code can only be used for comparative or benchmarking purposes. Users can only use code supplied under a [License](./license) for non-commercial purposes.
 
 ## Contact
 
