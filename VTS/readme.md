@@ -64,11 +64,11 @@ VTS/exp/inference/hifi_gan/
 └── generator.py
 └── utils.py
 ```
-Please download the checkpoint checkpoints_ft_lrs3.ckpt(lipvoicer trained on lrs3) and epoch=80.ckpt(vsr) in:
+Please download the checkpoint checkpoints_ft_lrs3.ckpt(lipvoicer trained on lrs3) and epoch=80.ckpt(CNVSRC2025 VSR Baseline) in:
 ```
 VTS/checkpoint
-├── checkpoints_ft_lrs3.ckpt
-├── epoch=80.ckpt
+├── checkpoints_ft_lrs3.ckpt (download here)
+├── epoch=80.ckpt (download here)
 ```
 
 
@@ -156,12 +156,10 @@ python compute_vts_metric.py \
 
 ## 📊 4. Baseline Performance
 On the CNVSRC.Single evaluation set:
-```
-STOI: 0.2416
-CER: 31.41%
-```
 
-
+|          Task         |       Training Data           | STOI on Eval| CER on Eval |
+|:---------------------:|:-----------------------------:|:-----------:|:-----------:|
+|          VTS          |        CNVSRC.Single          |   0.2416    |    31.41%   |
 
 
 ## License

@@ -60,5 +60,5 @@ Each track includes a detailed `README.md` describing environment setup, depende
 
 ```bash
 cd VSR   # for Visual Speech Recognition
-cd VTS   # for Video-to-Speech Synthesis -->
+cd VTS   # for Video-to-Speech Synthesis
 
