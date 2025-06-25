@@ -34,7 +34,6 @@ cnvsrc-single/
 │   ├── origin_video/       # Original full-face silent videos (.mp4)
 │   └── video/              # Cropped mouth region silent videos (.mp4)
 ├── eval/
-│   ├── audio/
 │   ├── origin_video/
 │   └── video/
 ```
