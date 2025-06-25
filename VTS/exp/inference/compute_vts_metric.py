@@ -18,6 +18,7 @@ def remove_punctuation(text: str) -> str:
     return re.sub(pattern, "", text)
 
 def metric(ref_wav, gen_wav, sample_rate, gt_text, hypothesis):
+    # compute both stoi and cer, but our competition metric for vts task is only cer.
     min_len = min(len(ref_wav), len(gen_wav))
     ref_wav = ref_wav[:min_len]
     gen_wav = gen_wav[:min_len]

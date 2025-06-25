@@ -157,9 +157,9 @@ python compute_vts_metric.py \
 ## 📊 4. Baseline Performance
 On the CNVSRC.Single evaluation set:
 
-|          Task         |       Training Data           | STOI on Eval| CER on Eval |
+|          Task         |       Training Data           |  CER on Dev | CER on Eval |
 |:---------------------:|:-----------------------------:|:-----------:|:-----------:|
-|          VTS          |        CNVSRC.Single          |   0.2416    |    31.41%   |
+|          VTS          |        CNVSRC.Single          |   33.15%    |    31.41%   |
 
 
 ## License
