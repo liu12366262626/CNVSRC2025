@@ -2,11 +2,12 @@ input:
   label_dir: /home/liuzehua/task/VTS/LipVoicer_revise/data/CNVSRC_Single
   train_file: train
   valid_file: valid300
+  tokenizer_path: /home/liuzehua/task/VTS/LipVoicer_revise/exp/model_v2/char_units.txt
+  pretrained_path: /home/liuzehua/task/VTS/LipVoicer_revise/checkpoint/checkpoints_ft_lrs3.ckpt
   train_micro_batch_size_per_gpu: 32
   gradient_accumulation_steps: 2
   num_gpus: 1
-  tokenizer_path: /home/liuzehua/task/VTS/LipVoicer_revise/exp/model_v2/char_units.txt
-  pretrained_path: /home/liuzehua/task/VTS/LipVoicer_revise/checkpoint/checkpoints_ft_lrs3.ckpt
+
 save:
   save_path: /home/liuzehua/task/VTS/LipVoicer_revise/main_log/temp
   save_feat: ${input.label_dir}/save_feat

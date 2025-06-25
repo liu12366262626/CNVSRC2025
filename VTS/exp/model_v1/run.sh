@@ -1,13 +1,13 @@
 # 运行脚本（示例）
 # 假设您有 2 个 GPU
-CUDA_DEVICES="4,5"
+CUDA_DEVICES="0"
 IFS=',' read -ra ADDR <<< "$CUDA_DEVICES"
 DEVICE_COUNT=${#ADDR[@]}
 
 current_date=$(date +"%Y-%m-%d")
 current_time=$(date +"%H-%M-%S")
-ROOT_PATH='/home/liuzehua/task/VTS/LipVoicer_revise'
-
+# ROOT_PATH='/home/liuzehua/task/VTS/LipVoicer_revise'
+ROOT_PATH=$(dirname "$(dirname "$(readlink -f "$0")")")
 # 根据DEBUG_MODE选择输出路径
 DEBUG_MODE=false
 if [ "$DEBUG_MODE" = false ]; then

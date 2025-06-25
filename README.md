@@ -1,14 +1,3 @@
-<!-- # CNVSRC2025
-This Is Official CNVSRC2025 Competition Baseline System
-<div align="center">
-    <img src="example.gif" width="256" />
-</div>
-
-We now have two different tracks here:
-1. Chinese VSR(Visual Speech Recognition) task, please see more information and code in [VSR file](https://github.com/liu12366262626/CNVSRC2025/tree/main/VSR)
-2. Chinese VTS(Video to Speech) task, please see more information and code in [VTS file](https://github.com/liu12366262626/CNVSRC2025/tree/main/VTS) -->.
-
-
 # CNVSRC2025: Official Baseline System
 
 Welcome to the official baseline system for **CNVSRC2025**. This repository provides the starter code, pretrained models, and data processing tools for two major tracks in the competition: Visual Speech Recognition (VSR) and Video-to-Speech (VTS).
@@ -57,10 +46,11 @@ Key features:
 
 ## 📦 Dataset & Evaluation
 
-The competition uses Chinese audio-visual speech dataset, with tools for preprocessing, training, validation, and testing. The evaluation protocol includes:
+The CNVSRC2025 competition is built upon the **CNVSRC2024 benchmark dataset**, which provides a solid foundation for large-scale visual speech processing research. 
 
-- **For VSR**: Character Error Rate (CER)
-- **For VTS**: Short-Time Objective Intelligibility (STOI), Character Error Rate (CER)
+In addition to the original dataset from CNVSRC2024, we have also **released an extra 1000 hours of high-quality audio-visual data**, significantly enhancing the training and evaluation potential for both VSR and VTS tasks.
+
+We provide tools for preprocessing, training, validation, and testing to support streamlined experimentation and reproducibility.
 
 ---
 
@@ -70,4 +60,5 @@ Each track includes a detailed `README.md` describing environment setup, depende
 
 ```bash
 cd VSR   # for Visual Speech Recognition
-cd VTS   # for Video-to-Speech Synthesis
+cd VTS   # for Video-to-Speech Synthesis -->
+
