@@ -1,7 +1,7 @@
 <h1 align="center"> CNVSRC2025 VTS Baseline</h1>
 # CNVSRC2025 - VTS Baseline
 
-This repository provides the baseline implementation for the **Voice from Talking Face (VTS)** track of CNVSRC2025.
+This repository provides the baseline implementation for the **Video to Speech (VTS)** track of CNVSRC2025.
 
 ## 🧠 Task Description
 
