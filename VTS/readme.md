@@ -43,6 +43,7 @@ VTS/data/CNVSRC_Single/
 ├── train.csv
 ├── valid.csv
 └── valid300.csv
+└── test.csv
 ```
 
 Each line in the CSV has the following format, please rewrite these csv files according to your download_path:

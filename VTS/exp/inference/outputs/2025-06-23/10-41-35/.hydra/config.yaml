@@ -1,4 +1,0 @@
-vtts_path: /home/liuzehua/task/VTS/LipVoicer_revise/main_log/2025-06-14/21-36-13/model-v1/checkpoint/step=70000_val_loss=0.1231.ckpt
-asr_guidance_path: /home/liuzehua/task/VTS/LipVoicer_revise/main_log/temp/step=79920_val_loss=30.8385.ckpt
-save_path: /home/liuzehua/task/VTS/LipVoicer_revise/main_log/infer_result
-split: valid300
