@@ -25,6 +25,7 @@ conda activate cnvsrc2025_vts
 ## 📁 2. Data Format
 
 Our baseline is trained and evaluated on the **CNVSRC.Single dataset**. The directory structure after preprocessing should look like:
+```
 cnvsrc-single/
 ├── dev/
 │   ├── audio/              # Audio files (.wav)
@@ -34,17 +35,19 @@ cnvsrc-single/
 │   ├── audio/
 │   ├── origin_video/
 │   └── video/
-
+```
 
 We also provide CSV files to organize training/validation/testing splits:
-
+```
 VTS/data/CNVSRC_Single/
 ├── train.csv
 ├── valid.csv
 └── valid300.csv
+```
 
 Each line in the CSV has the following format:
 <video_path>,<audio_path>,<video_frame_count>,<audio_sample_count>,<transcription>
+For example:
 /home/.../dev/video/00023065.mp4,/home/.../dev/audio/00023065.wav,322,206080,但是老百姓心里或多或少怀疑你到底是否是天命所归的时候为什么又必须要你要做出来这个戏你得装出你是天命所归呢这个就是一个非常有意思的现象啊大家难道不知道你这不是神仙
 
 ## 🏋️‍♀️ 3. Training & Inference
@@ -56,13 +59,11 @@ Code: VTS/exp/model_v1
 Config to modify: VTS/exp/model_v1/config/train.yaml
 
 Example configuration:
-
 ```bash
 input:
   label_dir: .../VTS/data/CNVSRC_Single # your path
   train_file: train
   valid_file: valid300
-
 ...
 ```
 
@@ -80,6 +81,7 @@ Code: VTS/exp/model_v2
 
 Config to modify: VTS/exp/model_v2/config/train.yaml
 
+Example configuration:
 ```bash
 input:
   label_dir: .../VTS/data/CNVSRC_Single # your path
@@ -87,7 +89,6 @@ input:
   valid_file: valid300
   tokenizer_path: .../VTS/exp/model_v2/char_units.txt  # VTS/exp/model_v2/char_units.txt
   pretrained_path: .../VTS/checkpoint/checkpoints_ft_lrs3.ckpt # please download this
-
 ...
 ```
 
@@ -104,6 +105,7 @@ Script: VTS/exp/inference
 
 Config: VTS/exp/inference/config/infer.yaml
 
+Example configuration:
 ```bash
 Example configuration:
 vtts_path: .../VTS/main_log/temp/vtts_step=67500_val_loss=0.1237.ckpt  # trained model_v1
@@ -111,16 +113,15 @@ asr_guidance_path: .../VTS/main_log/temp/asr_step=79920_val_loss=30.8385.ckpt # 
 vsr_path: .../VTS/checkpoint/cncvs_cncvs2_cncvs3_1000/epoch=80.ckpt # from CNVSRC2025 VSR Baseline
 save_path: .../VTS/main_log/infer_result # you can define this path
 split: test300 # Make sure test300.csv is placed under VTS/data/CNVSRC_Single
-
 ...
 ```
 
 ## 📊 4. Baseline Performance
 On the CNVSRC.Single evaluation set:
-
+```
 STOI: 0.2416
-
 CER: 31.41%
+```
 
 
 
