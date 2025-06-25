@@ -116,6 +116,22 @@ save_path: .../VTS/main_log/infer_result # you can define this path
 split: test # Make sure test.csv is placed under VTS/data/CNVSRC_Single
 ...
 ```
+**Run Inference:**
+```bash
+cd VTS/exp/inference
+# first generate the speech
+python infer.py
+# then calculate the VTS metric 
+python compute_vts_metric.py \
+  --csv /path/to/test.csv \ 
+  --gen_wav_dir /path/to/gen_wav \
+  --save_result /path/to/save/infer.json 
+
+# csv is your test.csv path
+# gen_wav_dir is your generated speech path from infer.py
+# save_result is your generated audio path
+
+```
 
 ## 📊 4. Baseline Performance
 On the CNVSRC.Single evaluation set:
