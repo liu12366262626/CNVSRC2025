@@ -57,7 +57,7 @@ Each line in the CSV has the following format, please rewrite these csv files ac
 ```
 
 ### 2.2 pretrained checkpoint preparation
-All the model can be download from this [link](https://pan.baidu.com/s/1gsJiHR7BJtpppyRCgx_swA?pwd=63cu)
+All the model can be download from this [link](https://pan.baidu.com/s/1gsJiHR7BJtpppyRCgx_swA?pwd=63cu).<br>
 Please download the checkpoint g_02400000 in:
 ```
 VTS/exp/inference/hifi_gan/
@@ -135,7 +135,7 @@ After both models are trained, you can run inference using:
 Example configuration:
 vtts_path: .../VTS/main_log/temp/vtts_step=67500_val_loss=0.1237.ckpt  # trained model_v1
 asr_guidance_path: .../VTS/main_log/temp/asr_step=79920_val_loss=30.8385.ckpt # trained model_v2
-vsr_path: .../VTS/checkpoint/model_avg_cncvs_2_3_cnvsrc # from CNVSRC2025 VSR Baseline
+vsr_path: .../VTS/checkpoint/model_avg_cncvs_2_3_cnvsrc.ckpt # from CNVSRC2025 VSR Baseline
 save_path: .../VTS/main_log/infer_result # you can define this path
 split: test # Make sure test.csv is placed under VTS/data/CNVSRC_Single
 ...
