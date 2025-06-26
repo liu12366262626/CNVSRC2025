@@ -39,6 +39,8 @@ cnvsrc-single/
 ```
 
 We also provide CSV files to organize training/validation/testing splits:
+Note: The development (Dev) set result of this baseline **(CER: 33.15%)** is based on the validation set valid300.csv. Participants are free to choose their own validation set for evaluation. This baseline simply uses valid300.csv as a reference. Please note that all Dev data can be used for training.
+
 ```
 VTS/data/CNVSRC_Single/
 ├── train.csv
@@ -47,7 +49,7 @@ VTS/data/CNVSRC_Single/
 └── test.csv
 ```
 
-Each line in the CSV has the following format, please rewrite these csv files according to your download_path:
+Each line in the CSV has the following format, please rewrite these csv files according to your download_path:<br>
 <video_path>,<audio_path>,<video_frame_count>,<audio_sample_count>,<transcription>
 ```
 #For example:
@@ -55,6 +57,7 @@ Each line in the CSV has the following format, please rewrite these csv files ac
 ```
 
 ### 2.2 pretrained checkpoint preparation
+All the model can be download from this [link](https://pan.baidu.com/s/1gsJiHR7BJtpppyRCgx_swA?pwd=63cu)
 Please download the checkpoint g_02400000 in:
 ```
 VTS/exp/inference/hifi_gan/
@@ -64,11 +67,11 @@ VTS/exp/inference/hifi_gan/
 └── generator.py
 └── utils.py
 ```
-Please download the checkpoint checkpoints_ft_lrs3.ckpt(lipvoicer trained on lrs3) and epoch=80.ckpt(CNVSRC2025 VSR Baseline) in:
+Please download the checkpoint checkpoints_ft_lrs3.ckpt(lipvoicer trained on lrs3) and model_avg_cncvs_2_3_cnvsrc.ckpt(CNVSRC2025 VSR Baseline) in:
 ```
 VTS/checkpoint
 ├── checkpoints_ft_lrs3.ckpt (download here)
-├── epoch=80.ckpt (download here)
+├── model_avg_cncvs_2_3_cnvsrc.ckpt (download here)
 ```
 
 
@@ -132,7 +135,7 @@ After both models are trained, you can run inference using:
 Example configuration:
 vtts_path: .../VTS/main_log/temp/vtts_step=67500_val_loss=0.1237.ckpt  # trained model_v1
 asr_guidance_path: .../VTS/main_log/temp/asr_step=79920_val_loss=30.8385.ckpt # trained model_v2
-vsr_path: .../VTS/checkpoint/epoch=80.ckpt # from CNVSRC2025 VSR Baseline
+vsr_path: .../VTS/checkpoint/model_avg_cncvs_2_3_cnvsrc # from CNVSRC2025 VSR Baseline
 save_path: .../VTS/main_log/infer_result # you can define this path
 split: test # Make sure test.csv is placed under VTS/data/CNVSRC_Single
 ...
