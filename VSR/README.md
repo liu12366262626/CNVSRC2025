@@ -52,9 +52,7 @@ pip install -r reqs.txt
 
 3. Download and preprocess the dataset. See the instructions in the [preparation](./preparation) folder.
 
-```
-TODO 这里需要修改成新的pretrained model
-```
+
 4. Download the [models](#Model-zoo) into path [pretrained_models/](pretrained_models/)
 
 ## Logging
@@ -144,10 +142,7 @@ We prefer using `predict.py` to observe the real-time output text.
 
 The table below contains the CER performance of Models on their own task.
 
-```
-TODO 这里也要改新链接
-```
-Download model files from [huggingface](https://huggingface.co/chenchen2121/CNVSRC2024Baseline) or [modelscope](https://www.modelscope.cn/chenchen2121/CNVSRC2024Baseline)。
+Download model files from [huggingface](https://huggingface.co/ReflectionL/CNVSRC2025Baseline) or [modelscope](https://www.modelscope.cn/models/PaintedVeil/CNVSRC2025Baseline)。
 
 |          Task         |       Training Data           | CER on Dev | CER on Eval | File Name                          |
 |:---------------------:|:-----------------------------:|:----------:|:-----------:|:-----------------------------------|
